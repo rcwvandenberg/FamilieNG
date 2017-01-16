@@ -1,0 +1,307 @@
+@charset "utf-8";
+* {	
+	margin: 0px; padding: 0px;
+}
+a {
+	color:#B32C0E;
+}
+a:hover {
+	color:#000000;
+	text-decoration:none;
+}
+body {
+	background: #FFFFFF;
+	min-height: 100%;
+	display: block;
+}
+.style_2 {
+	font-size: 7px;
+	color: #000011;
+}
+.style_2 a{
+	font-size: 7px;
+	color: #000011;
+}
+.style_2 a:hover{
+	font-size: 7px;
+	color: #000011;
+}
+#wrap{
+	width: 100%;
+	margin:0px auto 15px auto;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color: black;
+}
+#topbar{
+	background-color: #21201D;
+	text-align: center;
+	display: bock;
+}
+#top-links {
+    float: left;
+}
+#top-midden {
+	display: inline-block;
+	margin-top: 5px;
+}
+#top-rechts {
+    float: right;
+}
+img {
+	border: none;
+}
+h1  {
+	color:#FFBE00;
+	font-size: 40px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+h2, h3, h4, h5 {
+	color:#B32C0E;
+	font-weight:bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#sitename {
+	text-decoration :none;
+	font-size:24px;
+	color:#000000;
+	padding-top:120px;
+}
+#topmenu {
+	list-style:none;
+	padding:0px 0px 0px 0px;
+	float: left;
+	width: 100%;
+	background-color: black;
+}
+#topmenu li {
+	display:inline;
+}
+#topmenu a {
+	float:left;
+	height:28px;
+	margin:0px 0px 0px 0px;
+	text-decoration:none;
+	padding:9px 15px 0px 15px;
+	text-align:center;
+}
+#topmenu a, #topmenu a:visited, #topmenu a:active {
+	color:#FFFFFF;
+}
+#topmenu a:hover{
+	color:#FFFFFF;
+	background-color: #B52E10;
+}
+#topmenu .active a, #topmenu .active a:visited, #topmenu .active a:active{
+	color:#FFFFFF;
+	background-color: #B42D0F;
+}
+#header{
+	height:189px;
+	clear: both;
+}
+.floatright1{
+	float: right;
+    margin-right: 10px;
+}
+.floatright2{
+	float: right;
+}
+.f-nav{  
+    z-index: 9999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+#content {
+	width:90%;
+	background-color: #FFFFFF;
+	padding-left: 5%;
+}
+#mainpage {
+	display: inline;
+	height: 850px;
+	width: 85%;
+	float: left;
+	box-sizing: border-box;
+}
+#mainpage h2 {
+	font-size:18px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #B52E10;
+	text-align: center;
+}
+#mainpage p {
+	line-height:18	px;
+	margin:10px 0px 0px 0px;
+	font-size: 14px;
+}
+#sidebar {
+	margin:0px 0px 0px 0px;
+	float: right;
+	width: 15%;
+	padding-top: 100px;
+}
+#sidebarcontents {
+	padding:5px 0px 5px 0px;
+}
+#menu {
+	list-style:none;
+  	position: fixed;
+  	top: 40%;
+}
+#menu h2 {
+	display:block;
+	border-bottom:solid 1px #D2E6CA;
+	padding:5px;
+	margin:10px 0px 0px 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#B32C0E;
+	font-weight:bold;
+}
+menu li ul {
+	list-style:none;
+}
+#menu li ul li {
+	display:block; 
+	height:25px; 
+	border-bottom:solid 1px #efefef;
+}
+#menu li ul a, #menu li ul a:visited, #menu li ul a:active {
+	display:block; 
+	height:20px; 
+	padding:5px 5px 0px 5px; 
+	text-decoration:none; 
+	color:#333333;
+}
+#menu li ul a:hover {
+	background:#F8F9F2;
+	color:#B32C0E;
+}
+.clear {
+	clear:both;
+}
+#footer {
+	width:100%;
+	height:55px;
+	padding:0px 5px 5px 0px;
+	color:#FFFFFF;
+	text-align: center;
+	background:#21201D;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	clear: both;
+}
+
+/* Alle familieleden */
+#namen, .namenth, .namentd {
+	width: 40%;
+    border-collapse: collapse;
+    padding: 4px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+.namenth{
+	text-align: left;
+	text: bold;
+}
+.namentr:nth-child(even){
+	background-color: #f2f2f2
+}
+/* Detailinformatie familielid */
+.detailth, .detailtd {
+    border-collapse: collapse;
+    padding: 4px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+.detailth{
+	text-align: left;
+	text: bold;
+}
+.detailtr:nth-child(even){
+	background-color: #f2f2f2
+}
+.detailtr:nth-child(odd){
+	background-color: #f2f2f2
+	
+}
+/* Persoonsgegevens */
+.persgeg {
+	width:80%;
+}
+.kolom1{
+	width:20%;
+}
+.kolom2{
+	width:50%;
+}
+.foutmelding {
+	color:#B32C0E;	
+}
+
+/* Relaties */
+#left { 
+   width:30%; 
+   height:400px;
+   float:left; 
+}
+#center { 
+   width:30%; 
+   height:400px;
+   float:left; 
+}
+#right { 
+   width:30%; 
+   height:400px;
+   float:left; 
+}
+/* Stamboom */
+#stamboompage {
+	color:black;
+	width:100%;
+	margin:auto;
+	text-align: center;
+}
+#stamboompage h1{
+	color:black;
+	width:100%;
+	margin:auto;
+	text-align: center;
+	border: solid 1px
+}
+#stamboompage h2{
+	color:black;
+	width:100%;
+	margin:auto;
+	text-align: center;
+	border: solid 1px
+}
+#stamboompage h3{
+	color:black;
+	width:100%;
+	margin:auto;
+	text-align: center;
+	border: solid 1px
+}
+#stamboompage h4{
+	color:black;
+	width:100%;
+	margin:auto;
+	text-align: center;
+	border: solid 1px
+}
+#stamboompage table{
+	color:black;
+	width:100%;
+	margin:auto;
+	text-align: center;
+}
+#stamboompage td{
+	vertical-align:top;
+}

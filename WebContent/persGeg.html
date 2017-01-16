@@ -1,0 +1,67 @@
+<div id="persoonsGegevens">
+<form name="persgeg">
+	<br>
+	<table class="persgeg">
+		<tr><td class="kolom1">Geslacht</td>
+			<td class="kolom2"><select autofocus 				id="geslacht">	<option value="man">Man</option>
+																			 	<option value="vrouw">Vrouw</option></select></td>
+		</tr>
+		<tr><td class="kolom1">Doopnaam</td>
+			<td class="kolom2"><input			type="text"		id="doopnaam"			maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutDoopnaam"></td>
+		</tr>
+		<tr><td>Roepnaam</td><td><input			type="text"		id="roepnaam"			maxlength="15"	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutRoepnaam"></td>
+		</tr>
+		<tr><td>Tussenvoegsel</td><td><input 	type="text" 	id="tussenvoegsel"		maxlength="15" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutTussenvoegsel"></td>
+		</tr>
+		<tr><td>Achternaam</td><td><input 		type="text"		id="achternaam" 		maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutAchternaam"></td>
+		</tr>
+		<tr><td>Straatnaam</td><td><input 		type="text"		id="straatnaam" 		maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutStraatnaam"></td>
+		</tr>
+		<tr><td>Huisnummer</td><td><input 		type="text"		id="huisnr" 			maxlength="5" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutHuisnr"></td>
+		</tr>
+		<tr><td>Huisnr toev.<td><input 			type="text"		id="huisnrtoev"			maxlength="5" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutHuisnrtoev"></td>
+		</tr>
+		<tr><td>Postcode</td><td><input 		type="text"		id="postcode" 			maxlength="6" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td	class=foutmelding								id="foutPostcode"></td>
+		</tr>
+		<tr><td>Plaatsnaam</td><td><input 		type="text"		id="plaatsnaam" 		maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutPlaatsnaam"></td>
+		</tr>
+		<tr><td>Staat</td><td><input 			type="text"		id="staat" 				maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutStaat"></td>
+		</tr>
+		<tr><td>Land</td><td><input value="Nederland" type="text" id="land" 			maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutLand"></td>
+		</tr>
+		<tr><td>Telefoon</td><td><input 		type="text"		id="telefoon" 			maxlength="10" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutTelefoon"></td>
+		</tr>
+		<tr><td>Geboortedatum</td><td><input 	type="date"		id="geboortedatum" 		maxlength="10" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutGeboortedatum"></td>
+		</tr>
+		<tr><td>Geboorteplaats</td><td><input 	type="text"		id="geboorteplaats" 	maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutGeboorteplaats"></td>
+		</tr>
+		<tr><td>Datum overlijden</td><td><input type="date"		id="overlijdensdatum" 	maxlength="10" 	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutOverlijdensdatum"></td>
+		</tr>
+		<tr><td>E-mail adres</td><td><input 	type="email"	id="email" 				maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutEmail"></td>
+		</tr>
+		<tr><td>Wachtwoord</td><td><input 		type="password"	id="password" 			maxlength="20"	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutPassword"></td>
+		</tr>
+		<tr><td>Herhaal wachtwoord</td><td><input type="password" id="password2" 		maxlength="20"	size="15" onblur="checkPersGeg(id)"></td>
+			<td class=foutmelding								id="foutPassword2"></td>
+		</tr>
+		<tr><td></td><td> <button id ="opslaan" onClick="setPersgeg()" type="button">Opslaan</button></td></tr>
+	</table>
+</form> 
+</div>
