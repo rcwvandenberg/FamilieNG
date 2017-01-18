@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app="familie">
 <head>
 	<meta 	http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>	Familie De Groot</title>
@@ -7,11 +7,13 @@
 	<script src="jquery-3.1.1.js" type="text/javascript"></script>
 	<script src="jQueryFunctions.js"></script>
 	<script src="angular.js"></script>
+	<script src="app.js"></script>
+	<script src="menuCtrl.js"></script>
 	<link 	href="style.css" rel="stylesheet" type="text/css" />
 	<link 	rel="icon" href="images/Favicon.png"></link>
 </head>
 
-<body onload="home()">
+<body>
 	<div id="wrap">
 		<div id="topbar">
 			<img src="images/Echtpaar.jpg" alt="Echtpaar" 			height="200" 	id="top-links"></img>
@@ -20,11 +22,11 @@
 				<img src="images/Wapen.png" alt="Familiewapen" 		height="141"	id="top-midden"></img>
 				<h1>Familie De Groot</h1>
 			</div>
-			<div id="menus">
+			<div ng-controller="menuCtrl" ng-init="home()" id="menus">
 				<ul id="topmenu">
-					<li id="home"            class="active"     ><a href="#" onclick="home()"      >Home             </a></li>
-					<li id="overons"                            ><a href="#" onclick="overOns()"   >Over ons         </a></li>
-					<li id="namenlijst"                         ><a href="#" onclick="namenLijst()">Alle familieleden</a></li>
+					<li id="home"            class="active"     ><a ng-click="home()">Home</a></li>
+					<li id="overons"                            ><a ng-click="overOns()">Over ons</a></li>
+					<li id="namenlijst"                         ><a ng-click="namenLijst()">Alle familieleden</a></li>
 					<li id="persoonsgegevens"                   ><a href="#" onclick="persGeg()"   >Persoonsgegevens </a></li>
 					<li id="relaties"                           ><a href="#" onclick="relaties()"  >Relaties         </a></li>
 					<li id="stamboom"                           ><a href="#" onclick="stamboom()"  >Stamboom         </a></li>
@@ -36,6 +38,7 @@
 		<p><br></br><br></br></p>
 		<div id="content">
 			<div id="mainpage"></div>
+			<ng-view></ng-view>
 			<div id="sidebar">
 				<div id="sidebarcontents">
 					<ul id="menu">

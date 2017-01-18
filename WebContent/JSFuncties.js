@@ -22,55 +22,6 @@ function activeMenuItem(menuItem) {
 */
 }
 
-function home() {
-	activeMenuItem("home");
-    $.get("home.html", function(data) {
-    	$("#" + "mainpage").html(data);
-    });
-
-    /* menubalk aan de bovenkant van het scherm fixeren */
-    $("document").ready(function($){
-        var nav = $('#menus');
-
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 200) {
-                nav.addClass("f-nav");
-            } else {
-                nav.removeClass("f-nav");
-            }
-        });
-    });
-    
-/* Oude code voor jQuery
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("mainpage").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "home.html", true);
-	xhttp.send();
-*/
-}
-
-function overOns() {
-	activeMenuItem("overons");
-    $.get("http://localhost:8080/Familie/rest/overOns", function(data) {
-    	$("#" + "mainpage").html(data);
-    });
-
-/* Oude code voor jQuery
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("mainpage").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "rest/overOns", true);
-	xhttp.send();
-*/
-}
-
 function namenLijst() {
 	activeMenuItem("namenlijst")
     $.getJSON("http://localhost:8080/Familie/rest/person/all", function(data) {
