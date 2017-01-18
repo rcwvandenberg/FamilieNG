@@ -22,45 +22,6 @@ function activeMenuItem(menuItem) {
 */
 }
 
-function namenLijst() {
-	activeMenuItem("namenlijst")
-    $.getJSON("http://localhost:8080/Familie/rest/person/all", function(data) {
-		var text = '<table id="namen">';
-		text += "<tr class='namentr'><th class='namenth'>Naam</th><th class='namenth'>Geboortedatum</th></tr>";
-		for (var i = 0; i < data.length; i++) {
-			text += '<tr class="namentr"><td class="namentd"' + i % 2 + '">'
-					+ '<a href="#" onclick="persoon(' + data[i].id + ')"'
-					+ '>' + data[i].roepnaam + " " + data[i].tussenvoegsel
-					+ " " + data[i].achternaam + "</a></td>";
-			text += "<td class='namentd'>" + data[i].geboortedatum + "</td></tr>";
-		}
-		text += "</table>";
-    	$("#" + "mainpage").html(text);
-    });
-	
-/* Oude code voor jQuery
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var json = JSON.parse(this.responseText)
-			var text = '<table id="namen">';
-			text += "<tr class='namentr'><th class='namenth'>Naam</th><th class='namenth'>Geboortedatum</th></tr>";
-			for (var i = 0; i < json.length; i++) {
-				text += '<tr class="namentr"><td class="namentd"' + i % 2 + '">'
-						+ '<a href="#" onclick="persoon(' + json[i].id + ')"'
-						+ '>' + json[i].roepnaam + " " + json[i].tussenvoegsel
-						+ " " + json[i].achternaam + "</a></td>";
-				text += "<td class='namentd'>" + json[i].geboortedatum + "</td></tr>";
-			}
-			text += "</table>";
-			document.getElementById("mainpage").innerHTML = text;
-		}
-	};
-	xhttp.open("GET", "rest/person/all", true);
-	xhttp.send();
-*/
-}
-
 function persoon(id) {
 	var text = '<table id="detail">';
 	var xhttp = new XMLHttpRequest();
@@ -127,18 +88,6 @@ function partner(id, text) {
 	xhttp.open("GET", "http://localhost:8080/Familie/rest/relation/partner/" + id, true);
 	xhttp.send();
 
-}
-
-function persGeg() {
-	activeMenuItem("persoonsgegevens")
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("mainpage").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "persGeg.html", true);
-	xhttp.send();
 }
 
 function checkPersGeg(id) {
@@ -633,20 +582,6 @@ function updatePersgeg(id) {
 	}));
 }
 
-function relaties() {
-	activeMenuItem("relaties")
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("mainpage").innerHTML = this.responseText;
-			namen();
-			relatietypes();
-		}
-	};
-	xhttp.open("GET", "relaties.html", true);
-	xhttp.send();
-}
-
 function namen() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -699,62 +634,6 @@ function setRelation() {
 	}
 	xhttp.open("POST", "rest/relation/add/" + partner + "/" + relatietype + "/" + person1_id + "/" + person2_id, true);
 	xhttp.setRequestHeader("Content-Type", "application/json");
-	xhttp.send();
-}
-
-function stamboom() {
-	activeMenuItem("stamboom");
-	$("#" + "mainpage").html("");
-    $.get("http://localhost:8080/Familie/rest/stamboom", function(data) {
-    	$("<div id='stamboompage'></div>").appendTo("#mainpage");
-    	var vorigParentId = 0;
-    	$("<table id='t"
-		    	+ vorigParentId
-		    	+ "'></table>").appendTo("#stamboompage");
-    	$("</tr><tr id='p" + vorigParentId + "'></tr>").appendTo("#t" + vorigParentId)
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].parentId != vorigParentId) {
-		    	$("<table id='t"
-		    	+ data[i].parentId
-		    	+ "'></table>").appendTo("#" + data[i].parentId);
-		    	$("</tr><tr id='p" + data[i].parentId + "'></tr>").appendTo("#t" + data[i].parentId)
-				vorigParentId = data[i].parentId
-			}
-			$("<td id='"
-			+ data[i].id
-			+ "'>"
-			+ "<h"
-			+ data[i].level
-			+ ">"
-			+ data[i].roepnaam 
-			+ " " 
-			+ data[i].tussenvoegsel 
-			+ " " 
-			+ data[i].achternaam
-			+ "<br>"
-			+ data[i].partnerRoepnaam 
-			+ " " 
-			+ data[i].partnerTussenvoegsel 
-			+ " " 
-			+ data[i].partnerAchternaam 
-			+ "</h" 
-			+ data[i].level
-			+ ">"
-			+ "</td>").appendTo("#p"
-			+ data[i].parentId);
-			}
-    })
-}
-
-function contact() {
-	activeMenuItem("contact")
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("mainpage").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "contact.html", true);
 	xhttp.send();
 }
 
