@@ -1,12 +1,11 @@
 angular.module('familie', [])
-.controller('menuCtrl', ['$scope', function($scope) {
+.controller('menuCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$scope.home = function() {
     	activeMenuItem("home");
-        $.get("home.html", function(data) {
-        	$("#" + "mainpage").html(data);
+    	$http.get("home.html").then(function(response) {
+        	$("#" + "mainpage").html(response.data);
         });
-
         /* menubalk aan de bovenkant van het scherm fixeren */
         $("document").ready(function($){
             var nav = $('#menus');
@@ -21,14 +20,22 @@ angular.module('familie', [])
         });
     };
 
-	$scope.overOns = function() {
+    $scope.overOns = function() {
 		activeMenuItem("overons");
-	    $.get("http://localhost:8080/Familie/rest/overOns", function(data) {
-	    	$("#" + "mainpage").html(data);
-	    });
+    	$http.get("http://localhost:8080/Familie/rest/overOns").then(function(response) {
+        	$("#" + "mainpage").html(response.data);
+        });
     };
 
-	$scope.namenLijst = function() {
+    $scope.namenLijst = function() {
+		activeMenuItem("namenlijst");
+    	$http.get("namenlijst.html").then(function(response) {
+        	$("#" + "mainpage").html(response.data);
+        });
+    };
+
+/*
+    $scope.namenLijst = function() {
 		activeMenuItem("namenlijst")
 	    $.getJSON("http://localhost:8080/Familie/rest/person/all", function(data) {
 			var text = '<table id="namen">';
@@ -44,7 +51,8 @@ angular.module('familie', [])
 	    	$("#" + "mainpage").html(text);
 	    });
     };
-
+*/
+    
 	$scope.persGeg = function() {
 		activeMenuItem("persoonsgegevens")
 		var xhttp = new XMLHttpRequest();

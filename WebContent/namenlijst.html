@@ -1,0 +1,14 @@
+<div ng-controller="namenLijstCtrl">
+	<table id="namen">
+		<tr class="namentr">
+			<th class="namenth">Naam</th>
+			<th class="namenth">Geboortedatum</th>
+		</tr>
+		<tr class="namentr">
+			<td class="namentd" >
+				<a href="#" onclick="persoon({{persons[0].id}})">{{persons[0].achternaam}}</a>
+			</td>
+			<td class="namentd">{{persons[0].geboortedatum}}</td>
+		</tr>
+	</table>
+</div>
