@@ -7,8 +7,8 @@
 	<script src="jquery-3.1.1.js" type="text/javascript"></script>
 	<script src="jQueryFunctions.js"></script>
 	<script src="angular.js"></script>
+	<script src="angular-route.js"></script>
 	<script src="app.js"></script>
-	<script src="menuCtrl.js"></script>
 	<link 	href="style.css" rel="stylesheet" type="text/css" />
 	<link 	rel="icon" href="images/Favicon.png"></link>
 </head>
@@ -22,11 +22,11 @@
 				<img src="images/Wapen.png" alt="Familiewapen" 		height="141"	id="top-midden"></img>
 				<h1>Familie De Groot</h1>
 			</div>
-			<div ng-controller="menuCtrl" ng-init="home()" id="menus">
+			<div id="menus">
 				<ul id="topmenu">
-					<li id="home"            class="active"     ><a ng-click="home()">Home</a></li>
-					<li id="overons"                            ><a ng-click="overOns()">Over ons</a></li>
-					<li id="namenlijst"                         ><a ng-click="namenLijst()">Alle familieleden</a></li>
+					<li id="home"            class="active"     ><a ng-href="#!">Home</a></li>
+					<li id="overons"                            ><a ng-href="#!overons">Over ons</a></li>
+					<li id="namenlijst"                         ><a ng-href="#!namenlijst">Alle familieleden</a></li>
 					<li id="persoonsgegevens"                   ><a href="#" onclick="persGeg()"   >Persoonsgegevens </a></li>
 					<li id="relaties"                           ><a href="#" onclick="relaties()"  >Relaties         </a></li>
 					<li id="stamboom"                           ><a href="#" onclick="stamboom()"  >Stamboom         </a></li>
@@ -37,8 +37,8 @@
 		</div>
 		<p><br></br><br></br></p>
 		<div id="content">
-			<div id="mainpage"></div>
-			<ng-view></ng-view>
+			<div id="mainpage"><ng-view></ng-view>
+			</div>
 			<div id="sidebar">
 				<div id="sidebarcontents">
 					<ul id="menu">
@@ -64,5 +64,7 @@
 			<p>Copyright &copy; 2016 FamilieDeGroot| <a href="#">Sitemap</a></p>
 		</div>
 	</div>
+<script>
+</script>
 </body>
 </html>

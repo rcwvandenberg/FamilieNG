@@ -1,0 +1,9 @@
+<table>
+	<tr class='namentr'><th class='namenth'>Naam</th><th class='namenth'>Geboortedatum</th></tr>
+	<tr ng-repeat="person in persons">
+    <td ng-if="$odd" style="background-color:#f1f1f1"><button ng-click="persoon({{person.id}})">{{ person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam }}</button></td>
+    <td ng-if="$odd" style="background-color:#f1f1f1">{{ person.geboortedatum }}</td>
+    <td ng-if="$even"><button ng-click="persoon(person.id)">{{ person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam }}</button></td>
+    <td ng-if="$even">{{ person.geboortedatum }}</td>
+  </tr>
+</table>
