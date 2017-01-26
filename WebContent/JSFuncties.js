@@ -23,6 +23,7 @@ function activeMenuItem(menuItem) {
 }
 
 function persoon(id) {
+	alert('persoson gestart')
 	var text = '<table id="detail">';
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
