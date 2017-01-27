@@ -21,6 +21,10 @@ app.config(function($routeProvider) {
         templateUrl : "persgeg.html", 
 //        controller  : "persgegCtrl" 
     }) 
+    .when("/relaties", {
+        templateUrl : "relaties.html",
+        controller  : "relatiesCtrl"
+    })
 ;
 });
 app.controller("homeCtrl", function ($scope) {
@@ -38,6 +42,13 @@ app.controller("homeCtrl", function ($scope) {
     })});
 app.controller("overonsCtrl", function ($scope, $http) {
 	activeMenuItem("overons");
+});
+app.controller("relatiesCtrl", function ($scope, $http) {
+	activeMenuItem("relaties");
+	$http.get("http://localhost:8080/Familie/rest/person/all")
+	.then(function(response) {$scope.persons = response.data});
+	$http.get("http://localhost:8080/Familie/rest/relationtype/all")
+	.then(function(response) {$scope.relaties = response.data});
 });
 app.controller("namenlijstCtrl", function ($scope, $http) {
 	activeMenuItem("namenlijst");
