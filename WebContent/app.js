@@ -17,6 +17,10 @@ app.config(function($routeProvider) {
         templateUrl : "persoon.html",
         controller  : "persoonCtrl"
     })
+    .when("/persgeg", { 
+        templateUrl : "persgeg.html", 
+//        controller  : "persgegCtrl" 
+    }) 
 ;
 });
 app.controller("homeCtrl", function ($scope) {
