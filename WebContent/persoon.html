@@ -1,6 +1,50 @@
 <table>
-	<tr class='detailtr'>
-		<td class='detailtd'>Naam</td>
-		<td class='detailtd'>{{person.doopnaam + "(" + person.roepnaam + ") " + person.tussenvoegsel + " " + person.achternaam }}</td>
+	<tr class="detailtr">
+		<td class="detailtd">Naam</td>
+		<td class="detailtd">{{person.doopnaam + "(" + person.roepnaam + ") " + person.tussenvoegsel + " " + person.achternaam }}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Adres</td>
+		<td class="detailtd">{{person.straatnaam + " " + person.huisnr + " " + person.huisnrtoev}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Postcode/woonplaats</td>
+		<td class="detailtd">{{person.postcode + " " + person.plaatsnaam}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Staat</td>
+		<td class="detailtd">{{person.staat}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Land</td>
+		<td class="detailtd">{{person.land}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Telefoon</td>
+		<td class="detailtd">{{person.telefoon}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Geslacht</td>
+		<td class="detailtd">{{person.geslacht}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Geboortedatum</td>
+		<td class="detailtd">{{person.geboortedatum}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Geboorteplaats</td>
+		<td class="detailtd">{{person.geboorteplaats}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Datum overlijden</td>
+		<td class="detailtd">{{person.overlijdensdatum}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">E-mail adres</td>
+		<td class="detailtd">{{person.email}}</td>
+	</tr>
+	<tr class="detailtr">
+		<td class="detailtd">Burgerlijke staat : </td>
+		<td class="detailtd">{{relatieType + " " + partner}}</td>
 	</tr>
 </table>

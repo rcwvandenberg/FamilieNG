@@ -23,5 +23,18 @@ app.controller("namenlijstCtrl", function ($scope, $http) {
 });
 app.controller("persoonCtrl", function ($scope, $http, $routeParams) {
 	$http.get("http://localhost:8080/Familie/rest/person/one/" + $routeParams.id)
-	.then(function(response) {$scope.person = response.data});
+	.then(function(response) {
+		$scope.person = response.data
+	});
+	$http.get("http://localhost:8080/Familie/rest/relation/" + $routeParams.id)
+	.then(function(response) {
+		$scope.relatieType = response.data.relatieType
+		$http.get("http://localhost:8080/Familie/rest/relation/partner/" + $routeParams.id)
+		.then(function(response) {
+			$scope.partner = response.data.roepnaam + " " + response.data.tussenvoegsel + " " + response.data.achternaam
+		})
+	}, 
+	function(response) {
+		$scope.relatieType = "Ongehuwd"
+	});
 });
