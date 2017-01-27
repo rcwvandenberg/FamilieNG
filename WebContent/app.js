@@ -2,10 +2,12 @@ var app = angular.module("familie", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "home.html"
+        templateUrl : "home.html",
+        controller  : "homeCtrl"
     })
     .when("/overons", {
-        templateUrl : "http://localhost:8080/Familie/rest/overOns"
+        templateUrl : "http://localhost:8080/Familie/rest/overOns",
+        controller  : "overonsCtrl"
     })
     .when("/namenlijst", {
         templateUrl : "namenlijst.html",
@@ -17,7 +19,24 @@ app.config(function($routeProvider) {
     })
 ;
 });
+app.controller("homeCtrl", function ($scope) {
+	activeMenuItem("home");
+    $("document").ready(function($){
+        var nav = $('#menus');
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) {
+                nav.addClass("f-nav");
+            } else {
+                nav.removeClass("f-nav");
+            }
+        });
+    })});
+app.controller("overonsCtrl", function ($scope, $http) {
+	activeMenuItem("overons");
+});
 app.controller("namenlijstCtrl", function ($scope, $http) {
+	activeMenuItem("namenlijst");
 	$http.get("http://localhost:8080/Familie/rest/person/all")
 	.then(function(response) {$scope.persons = response.data});
 });

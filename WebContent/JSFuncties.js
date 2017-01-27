@@ -7,42 +7,6 @@ function activeMenuItem(menuItem) {
 
 }
 
-function relatie(id, text) {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var json = JSON.parse(this.responseText);
-			text += "<tr class=detailtr><td class=detailtd>Burgerlijke staat : </td><td class=detailtd>" + json.relatieType;
-			partner(id, text);
-			text += '<tr><td><button id ="wijzigen" onClick="displayPersgeg(' + id + ')" type="button">Wijzigen</button></td></tr></table>';
-			document.getElementById("mainpage").innerHTML = text;
-		} else if (this.readyState == 4 && this.status == 412) {
-			text += "<tr class=detailtr><td class=detailtd>Burgerlijke staat : </td><td class=detailtd>Ongehuwd</td></tr>";
-			text += '<tr><td><button id ="wijzigen" onClick="displayPersgeg(' + id + ')" type="button">Wijzigen</button></td></tr></table>';
-			document.getElementById("mainpage").innerHTML = text;
-		}
-	}
-	xhttp.open("GET", "http://localhost:8080/Familie/rest/relation/" + id, true);
-	xhttp.send();
-
-}
-
-function partner(id, text) {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var json = JSON.parse(this.responseText);
-			text += " : " + json.roepnaam + " "
-					+ json.tussenvoegsel + " " + json.achternaam + "</td></tr>";
-			text += '<tr><td><button id ="wijzigen" onClick="displayPersgeg(' + id + ')" type="button">Wijzigen</button></td></tr></table>';
-			document.getElementById("mainpage").innerHTML = text;
-		}
-	}
-	xhttp.open("GET", "http://localhost:8080/Familie/rest/relation/partner/" + id, true);
-	xhttp.send();
-
-}
-
 function checkPersGeg(id) {
 	var y;
 	switch (id) {
