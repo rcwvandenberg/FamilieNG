@@ -3,14 +3,14 @@
 	<br>
 	<table class="persgeg">
 		<tr><td class="kolom1">Geslacht</td>
-			<td class="kolom2"><select autofocus 				id="geslacht">	<option value="man">Man</option>
+			<td class="kolom2"><select autofocus 				ng-model="geslacht" required>	<option value="man">Man</option>
 																			 	<option value="vrouw">Vrouw</option></select></td>
 		</tr>
 		<tr><td class="kolom1">Doopnaam</td>
-			<td class="kolom2"><input			type="text"		id="doopnaam"			maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
+			<td class="kolom2"><input			type="text"		ng-model="doopnaam"	required maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
 			<td class=foutmelding								id="foutDoopnaam"></td>
 		</tr>
-		<tr><td>Roepnaam</td><td><input			type="text"		id="roepnaam"			maxlength="15"	size="15" onblur="checkPersGeg(id)"></td>
+		<tr><td>Roepnaam</td><td><input			type="text"		ng-model="roepnaam"	required maxlength="15"	size="15" onblur="checkPersGeg(id)"></td>
 			<td class=foutmelding								id="foutRoepnaam"></td>
 		</tr>
 		<tr><td>Tussenvoegsel</td><td><input 	type="text" 	id="tussenvoegsel"		maxlength="15" 	size="15" onblur="checkPersGeg(id)"></td>
@@ -43,13 +43,13 @@
 		<tr><td>Telefoon</td><td><input 		type="text"		id="telefoon" 			maxlength="10" 	size="15" onblur="checkPersGeg(id)"></td>
 			<td class=foutmelding								id="foutTelefoon"></td>
 		</tr>
-		<tr><td>Geboortedatum</td><td><input   type="date"    id="geboortedatum"     ng-model="geboortedatum"  size="15" onblur="checkPersGeg(id)"></td>
+		<tr><td>Geboortedatum</td><td><input   type="date"    	name="geboortedatum"     ng-model="geboortedatum"  size="15"></td>
 			<td class=foutmelding ng-show="persgeg.geboortedatum.$error.date">Ongeldige geboortedatum</td> 
 		</tr>
 		<tr><td>Geboorteplaats</td><td><input 	type="text"		id="geboorteplaats" 	maxlength="50"	size="50" onblur="checkPersGeg(id)"></td>
 			<td class=foutmelding								id="foutGeboorteplaats"></td>
 		</tr>
-		<tr><td>Datum overlijden</td><td><input type="date"    name="overlijdensdatum" ng-model="overlijdensdatum"  size="15"></td>
+		<tr><td>Datum overlijden</td><td><input type="date"    	name="overlijdensdatum" ng-model="overlijdensdatum"  size="15"></td>
 			<td class=foutmelding ng-show="persgeg.overlijdensdatum.$error.date">Ongeldige overlijdensdatum</td> 
 		</tr>
 		    <tr><td>E-mail adres</td><td><input   type="email"  name="emailadres"     ng-model="emailadres" size="50"></td>
