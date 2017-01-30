@@ -1,25 +1,13 @@
 <div id="left">
 	<label>Kies persoon</label><br>
-	<select id="links">
-		<optgroup id="linkerlijst">
-			<option ng-repeat="person in persons">{{person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam}}</option>
-		</optgroup>
-	</select>
+	<select id="links" ng-model="links" ng-options='person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam for person in persons'></select>
 </div>
 <div id="center">
 	<label>Kies relatietype</label><br>
-	<select id="midden">
-		<optgroup id="middellijst">
-			<option ng-repeat="relatie in relaties">{{relatie.relationType}}</option>
-		</optgroup>
-	</select>
+	<select id="midden" ng-model="midden" ng-options='relatie.relationType for relatie in relaties'></select>>
 </div>
 <div id="right">
 	<label>Kies persoon</label><br>
-	<select id="rechts">
-		<optgroup id="rechterlijst">
-			<option ng-repeat="person in persons">{{person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam}}</option>
-		</optgroup>
-	</select>
-	<button id ="opslaan" onClick="setRelation()" type="button">Opslaan</button>
+	<select id="rechts" ng-model="rechts" ng-options='person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam for person in persons'></select>
+	<button id ="opslaan" ng-click="saveRelation(midden.partner, midden.relationType, links.id, rechts.id)" type="button">Opslaan</button>
 </div>

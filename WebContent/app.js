@@ -46,9 +46,13 @@ app.controller("overonsCtrl", function ($scope, $http) {
 app.controller("relatiesCtrl", function ($scope, $http) {
 	activeMenuItem("relaties");
 	$http.get("http://localhost:8080/Familie/rest/person/all")
-	.then(function(response) {$scope.persons = response.data});
+	.then(function(response) {$scope.persons = response.data; $scope.links = $scope.persons[0]; $scope.rechts = $scope.persons[0]});
 	$http.get("http://localhost:8080/Familie/rest/relationtype/all")
-	.then(function(response) {$scope.relaties = response.data});
+	.then(function(response) {$scope.relaties = response.data; $scope.midden = $scope.relaties[0]});
+	$scope.saveRelation = function(partner, relatieType, linksid, rechtsid){
+		$http.post("http://localhost:8080/Familie/rest/relation/add/" + partner + "/" + relatieType + "/" + linksid + "/" + rechtsid);
+		alert('Relatie opgeslagen');
+	};
 });
 app.controller("namenlijstCtrl", function ($scope, $http) {
 	activeMenuItem("namenlijst");
