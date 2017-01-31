@@ -1,9 +1,9 @@
-<table>
+<table id="namen">
 	<tr class='namentr'><th class='namenth'>Naam</th><th class='namenth'>Geboortedatum</th></tr>
-	<tr ng-repeat="person in persons">
-    <td ng-if="$odd" style="background-color:#f1f1f1"><a ng-href="#!persoon/{{person.id}}">{{ person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam }}</a></td>
-    <td ng-if="$odd" style="background-color:#f1f1f1">{{ person.geboortedatum }}</td>
-    <td ng-if="$even"><a ng-href="#!persoon/{{person.id}}">{{ person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam }}</a></td>
-    <td ng-if="$even">{{ person.geboortedatum }}</td>
+	<tr class="namentr" ng-repeat="person in persons">
+    <td class="namentd" ng-if="$odd" style="background-color:#f1f1f1"><a ng-href="#!persoon/{{person.id}}">{{ person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam }}</a></td>
+    <td class="namentd" ng-if="$odd" style="background-color:#f1f1f1">{{ person.geboortedatum }}</td>
+    <td class="namentd" ng-if="$even"><a ng-href="#!persoon/{{person.id}}">{{ person.roepnaam + " " + person.tussenvoegsel + " " + person.achternaam }}</a></td>
+    <td class="namentd" ng-if="$even">{{ person.geboortedatum }}</td>
   </tr>
 </table>
