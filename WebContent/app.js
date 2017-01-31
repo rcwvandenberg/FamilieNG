@@ -20,10 +20,14 @@ app.config(function($routeProvider) {
     .when("/persgeg", { 
         templateUrl : "persgeg.html", 
 //        controller  : "persgegCtrl" 
-    }) 
+    })
     .when("/relaties", {
         templateUrl : "relaties.html",
         controller  : "relatiesCtrl"
+    })
+    .when("/stamboom", {
+        templateUrl : "stamboom.html",
+        controller  : "stamboomCtrl"
     })
 ;
 });
@@ -74,5 +78,44 @@ app.controller("persoonCtrl", function ($scope, $http, $routeParams) {
 	}, 
 	function(response) {
 		$scope.relatieType = "Ongehuwd"
+	});
+});
+app.controller("stamboomCtrl", function ($scope, $http) {
+	activeMenuItem("stamboom");
+	$http.get("http://localhost:8080/Familie/rest/stamboom")
+	.then(function(response) {
+		data = response.data;
+		vorigParentId = 0;
+		for (i = 0; i < data.length; i++) {
+			if (data[i].parentId != vorigParentId) {
+		    	$("<table id='t"
+		    	+ data[i].parentId
+		    	+ "'></table>").appendTo("#" + data[i].parentId);
+		    	$("<tr id='p" + data[i].parentId + "'></tr>").appendTo("#t" + data[i].parentId)
+				vorigParentId = data[i].parentId
+			}
+			$("<td id='"
+			+ data[i].id
+			+ "'>"
+			+ "<h"
+			+ data[i].level
+			+ ">"
+			+ data[i].roepnaam 
+			+ " " 
+			+ data[i].tussenvoegsel 
+			+ " " 
+			+ data[i].achternaam
+			+ "<br>"
+			+ data[i].partnerRoepnaam 
+			+ " " 
+			+ data[i].partnerTussenvoegsel 
+			+ " " 
+			+ data[i].partnerAchternaam 
+			+ "</h" 
+			+ data[i].level
+			+ ">"
+			+ "</td>").appendTo("#p"
+			+ data[i].parentId);
+		}
 	});
 });

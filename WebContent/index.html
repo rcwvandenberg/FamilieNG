@@ -29,7 +29,7 @@
 					<li id="namenlijst"                         ><a ng-href="#!namenlijst">Alle familieleden</a></li>
 					<li id="persoonsgegevens"                   ><a ng-href="#!persgeg"   >Persoonsgegevens </a></li> 
 					<li id="relaties"                           ><a ng-href="#!relaties"  >Relaties         </a></li>
-					<li id="stamboom"                           ><a href="#" onclick="stamboom()"  >Stamboom         </a></li>
+					<li id="stamboom"                           ><a ng-href="#!stamboom"  >Stamboom         </a></li>
 					<li id="contact"         class="floatright1"><a href="#" onclick="contact()"   >Contact          </a></li>
 					<li id="login"        	 class="floatright2"><a href="#" onclick="login()"     >Login	         </a></li>
 				</ul>
@@ -37,7 +37,9 @@
 		</div>
 		<p><br></br><br></br></p>
 		<div id="content">
-			<div id="mainpage"><ng-view></ng-view>
+			<div id="mainpage">
+				<ng-view></ng-view>
+			</div>
 			<div id="sidebar">
 				<div id="sidebarcontents">
 					<ul id="menu">
@@ -55,7 +57,8 @@
 						</li>
 					</ul>
 				</div>
-				<div id="sidebarbottom"></div>
+				<div id="sidebarbottom">
+				</div>
 			</div>
 		</div>
 		<div id="footer">
@@ -63,7 +66,5 @@
 			<p>Copyright &copy; 2016 FamilieDeGroot| <a href="#">Sitemap</a></p>
 		</div>
 	</div>
-<script>
-</script>
 </body>
 </html>
