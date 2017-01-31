@@ -499,61 +499,6 @@ function updatePersgeg(id) {
 	}));
 }
 
-function namen() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var json = JSON.parse(this.responseText)
-			var text = "";
-			for (var i = 0; i < json.length; i++) {
-				text += '<option value="' + json[i].id + '"' + '>'
-						+ json[i].roepnaam + " " + json[i].tussenvoegsel
-						+ " " + json[i].achternaam
-						+ "</option>";
-			}
-			document.getElementById("linkerlijst").innerHTML = text;
-			document.getElementById("rechterlijst").innerHTML = text;
-		}
-	};
-	xhttp.open("GET", "http://localhost:8080/Familie/rest/person/all", true);
-	xhttp.send();
-}
-
-function relatietypes() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var json = JSON.parse(this.responseText)
-			var text = "";
-			for (var i = 0; i < json.length; i++) {
-				text += '<option value="' + json[i].partner + '"' + '>'
-						+ json[i].relationType
-						+ "</option>";
-			}
-			document.getElementById("middellijst").innerHTML = text;
-		}
-	};
-	xhttp.open("GET", "http://localhost:8080/Familie/rest/relationtype/all", true);
-	xhttp.send();
-}
-
-function setRelation() {
-	var doc         = document.getElementById("midden");
-	var partner     = doc.value;
-	var relatietype = doc.options[doc.selectedIndex].text;
-	var person1_id  = document.getElementById("links").value;
-	var person2_id  = document.getElementById("rechts").value;
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 204) {
-			alert("Relatie opgeslagen");
-		}
-	}
-	xhttp.open("POST", "rest/relation/add/" + partner + "/" + relatietype + "/" + person1_id + "/" + person2_id, true);
-	xhttp.setRequestHeader("Content-Type", "application/json");
-	xhttp.send();
-}
-
 function setFocus(id) {
 	var textbox = document.getElementById(id);
 	textbox.focus();
